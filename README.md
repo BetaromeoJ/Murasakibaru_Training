@@ -11,6 +11,11 @@ Base Designから一切変更していません。変更したのは研修内容
 今回のために新しく追加したコンポーネントです（既存のデザイントークンをそのまま使って
 作っているため、見た目としては違和感なくなじみます）。
 
+**デバイス前提**：紫原小学校の児童・教職員のタブレットはiPadです。Base Design
+（薩摩中央高等学校版）はWindowsタブレット「Surface Go 2」の標準アプリ「サウンドレコーダー」
+を録音ソースとして想定していましたが、紫原小学校版ではiPad標準搭載の「ボイスメモ」アプリに
+統一しています（主にSESSION 0・SESSION 1・使い方ガイドに反映）。
+
 ## ファイル構成
 
 ```
@@ -74,7 +79,7 @@ GitHub Pagesにアップロードする際は、上記ファイル・フォル�
 | SESSION 4 全画面ビュー | `#session4-view` | Canva AIで校務をもっと軽くする（PowerPoint→Canva AI・20分） |
 | SESSION 5 全画面ビュー | `#session5-view` | 明日から使えるAI活用ロードマップ（LEVEL1〜5・20分） |
 | AIツールの使い分け | `#tools` | Gemini／Gemini Notebook／Googleフォーム／Canva／Brisk／ChatGPT／Claude／Copilotの8カード |
-| 使い方ガイド／復習コーナー | `#guides` | Gemini・Gemini Notebook・Googleフォーム・Brisk・Canva AIの5カード（動画プレースホルダー付き） |
+| 使い方ガイド／復習コーナー | `#guides` | iPad「ボイスメモ」・Gemini Notebook・Googleフォーム・Brisk・Canva AIの5カード |
 | 小学校向け活用例 | `#subjects` | 国語〜管理職・教務まで14の教科・分掌カード |
 | AI活用ロードマップ | `#roadmap` | SESSION 5と同内容のLEVEL1〜5（研修後に単独で見返す用） |
 | 研修後に復習する | `#after` | クイックリンク・よくある質問（FAQ）7問・参考リンク |
@@ -107,10 +112,10 @@ SESSION 5の末尾と、独立したセクション`#action`の2箇所に、同�
 公開前に、以下を確認・差し替えてください。
 
 - [ ] `<meta name="training-date">`（`index.html`頭部）：研修実施日・時間帯を確定日時に書き換える
-- [ ] `#guides`（使い方ガイド／復習コーナー）内、5つの`.video-placeholder-frame`：
-      動画が用意できたら、`<iframe>`を使った`.video-frame`（`style.css`に定義済み）に
-      差し替える、またはYouTube等のURLをリンクとして追加する
-- [ ] SESSION 1の音声プレースホルダー（`.audio-placeholder`）：演習用デモ音声の
+- [ ] `#guides`（使い方ガイド／復習コーナー）：動画を追加したい場合は、各カードに
+      `<div class="video-frame"><iframe ...></iframe></div>`（`style.css`に定義済みの
+      `.video-frame`）を追加してください。現在は動画なしのテキスト＋リンクのみの構成です
+- [ ] SESSION 1の演習手順にあるtip-card（デモ音声についての案内）：演習用デモ音声の
       ファイル名・入手方法を記載する
 - [ ] 講師紹介（`#instructor`）・著作紹介（`#book`）：Base Designの内容（和田倫周氏）を
       そのまま引き継いでいます。紫原小学校の研修も同じ講師が担当する場合はこのままで
