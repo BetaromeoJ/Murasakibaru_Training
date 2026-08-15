@@ -32,26 +32,35 @@ Base Designから一切変更していません。変更したのは研修内容
     │   ├── google-trainer-badge.jpg     資格バッジ画像
     │   ├── canvassador-badge.jpg        資格バッジ画像
     │   └── book-cover.jpg               書影画像
-    └── videos/                          使い方ガイド用の動画を置く場所（現在は空）
+    └── videos/
+        └── instructor-animation.mp4     講師紹介の顔写真枠に埋め込むミニアニメーション（6秒・音声なし扱いで自動再生）
 ```
 
 GitHub Pagesにアップロードする際は、上記ファイル・フォルダをすべてそのままリポジトリ
 直下にアップロードしてください。ビルド環境は不要です。外部依存はGoogle Fonts
 （M PLUS Rounded 1c／Material Symbols）のみで、CDNライブラリは使用していません。
 
-### 画像について（重要）
+### 画像・動画について（重要）
 
-講師写真・資格バッジ・書影の4枚は、`index.html`内に**Base64形式で直接埋め込み**ています。
-`assets/images/`フォルダにも同じ画像を`.jpg`ファイルとして置いていますが、これは
-差し替え作業用の元データであり、現在の`index.html`はこのフォルダを参照していません。
+講師写真・資格バッジ・書影の4枚の画像と、講師紹介の動画1本は、`index.html`内に
+**Base64形式で直接埋め込み**ています。`assets/images/`・`assets/videos/`フォルダにも
+同じファイルを置いていますが、これらは差し替え作業用の元データであり、現在の
+`index.html`はこれらのフォルダを参照していません。
 
 埋め込みにした理由は2つあります。
 
 1. どのような環境で開いても（プレビュー・ローカル・GitHub Pages）確実に表示されるようにするため。
-2. 元データを調べたところ、拡張子は`.gif`／`.png`でしたが、実体はすべてJPEG形式の画像
+2. 画像の元データを調べたところ、拡張子は`.gif`／`.png`でしたが、実体はすべてJPEG形式の画像
    でした（拡張子と中身が一致していませんでした）。これが原因で、環境によっては画像が
    表示されない場合があったため、`assets/images/`側のファイルも中身に合わせて
    `.jpg`拡張子に修正し、埋め込みデータも正しく`image/jpeg`として指定し直しています。
+
+**講師紹介の動画について**：`#instructor`の顔写真枠は、静止画（`instructor-illustration.jpg`）
+から、6秒間ループする軽いアニメーション動画（`instructor-animation.mp4`）に変更しています。
+`autoplay muted loop playsinline`（自動再生・ミュート・ループ・インライン再生）で、
+GIFのように音なしで繰り返し再生される設定です。動画が読み込めない・自動再生できない
+環境では、`poster`属性で指定した静止画（`instructor-illustration.jpg`のBase64）が
+代わりに表示されます。
 
 画像を差し替える場合は、次のいずれかの方法で行ってください。
 
@@ -72,12 +81,12 @@ GitHub Pagesにアップロードする際は、上記ファイル・フォル�
 | 著作紹介 | `#book` | 書影・実績バッジ（Base Designと同一内容） |
 | 4つの使い方 | `#usage` | A当日に使う／B自分で学ぶ／C復習する／D今後使う |
 | 今日の研修 | `#today` | 研修テーマ＋SESSION 0〜5のカード（開くボタンで全画面表示） |
-| SESSION 0 全画面ビュー | `#session0-view` | オープニング（今日のゴール・5つのツール・今日使うリンク・10分） |
-| SESSION 1 全画面ビュー | `#session1-view` | 「話すだけ」で校務が終わる時代へ（音声→Gemini・35分） |
-| SESSION 2 全画面ビュー | `#session2-view` | Gemini Notebookを先生の共同担任にする（授業案・確認問題・40分） |
-| SESSION 3 全画面ビュー | `#session3-view` | Googleフォーム × AI（回答体験→Gemini→Brisk・25分） |
-| SESSION 4 全画面ビュー | `#session4-view` | Canva AIで校務をもっと軽くする（PowerPoint→Canva AI・20分） |
-| SESSION 5 全画面ビュー | `#session5-view` | 明日から使えるAI活用ロードマップ（LEVEL1〜5・20分） |
+| SESSION 0 全画面ビュー | `#session0-view` | オープニング（今日のゴール・5つのツール・今日使うリンク） |
+| SESSION 1 全画面ビュー | `#session1-view` | 「話すだけ」で校務が終わる時代へ（音声→Gemini） |
+| SESSION 2 全画面ビュー | `#session2-view` | Gemini Notebookを先生の共同担任にする（授業案・確認問題） |
+| SESSION 3 全画面ビュー | `#session3-view` | Googleフォーム × AI（回答体験→Gemini→Brisk） |
+| SESSION 4 全画面ビュー | `#session4-view` | Canva AIで校務をもっと軽くする（PowerPoint→Canva AI） |
+| SESSION 5 全画面ビュー | `#session5-view` | 明日から使えるAI活用ロードマップ（LEVEL1〜5） |
 | AIツールの使い分け | `#tools` | Gemini／Gemini Notebook／Googleフォーム／Canva／Brisk／ChatGPT／Claude／Copilotの8カード |
 | 使い方ガイド／復習コーナー | `#guides` | iPad「ボイスメモ」・Gemini Notebook・Googleフォーム・Brisk・Canva AIの5カード |
 | 小学校向け活用例 | `#subjects` | 国語〜管理職・教務まで14の教科・分掌カード |
@@ -119,8 +128,8 @@ SESSION 5の末尾と、独立したセクション`#action`の2箇所に、同�
       ファイル名・入手方法を記載する
 - [ ] 講師紹介（`#instructor`）・著作紹介（`#book`）：Base Designの内容（和田倫周氏）を
       そのまま引き継いでいます。紫原小学校の研修も同じ講師が担当する場合はこのままで
-      構いません。別の講師が担当する場合は、氏名・肩書き・経歴と、画像（現在は
-      `index.html`内にBase64で埋め込み。差し替え方法は上記「画像について」を参照）を
+      構いません。別の講師が担当する場合は、氏名・肩書き・経歴と、画像・動画（現在は
+      `index.html`内にBase64で埋め込み。差し替え方法は上記「画像・動画について」を参照）を
       差し替えてください
 - [ ] フッター・SESSION内フッターの問い合わせ先（`michihirowadarin@gmail.com`）：
       担当が変わる場合は差し替える
@@ -177,5 +186,7 @@ assets/videos/            （動画を追加する場合はこの中に配置し
 - [ ] 各講座末尾の「続けて次の講座へ」リンクで、正しく次の講座へ切り替わるか
 - [ ] SESSION全画面ビューの「閉じる」ボタン・Escキーで元の画面に戻れるか
 - [ ] 講師写真・書影の画像が正しく表示されるか（読み込めない場合もレイアウトが崩れないか）
+- [ ] 講師紹介のアニメーション動画が自動再生・ループするか（自動再生できない環境では
+      静止画が代わりに表示されるか）
 - [ ] 「明日からやること」のチェックカードが選択状態を切り替えられるか
 - [ ] GitHub Pages等で公開後、実機（スマートフォン・iPad・PC）で表示確認したか
