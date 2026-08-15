@@ -23,16 +23,40 @@ Base Designから一切変更していません。変更したのは研修内容
 ├── README.md
 └── assets/
     ├── images/
-    │   ├── instructor-illustration.gif  講師イラスト（Base Designと同一人物を想定）
-    │   ├── google-trainer-badge.png     資格バッジ画像
-    │   ├── canvassador-badge.png        資格バッジ画像
-    │   └── book-cover.png               書影画像
+    │   ├── instructor-illustration.jpg  講師イラスト（Base Designと同一人物を想定）
+    │   ├── google-trainer-badge.jpg     資格バッジ画像
+    │   ├── canvassador-badge.jpg        資格バッジ画像
+    │   └── book-cover.jpg               書影画像
     └── videos/                          使い方ガイド用の動画を置く場所（現在は空）
 ```
 
 GitHub Pagesにアップロードする際は、上記ファイル・フォルダをすべてそのままリポジトリ
 直下にアップロードしてください。ビルド環境は不要です。外部依存はGoogle Fonts
 （M PLUS Rounded 1c／Material Symbols）のみで、CDNライブラリは使用していません。
+
+### 画像について（重要）
+
+講師写真・資格バッジ・書影の4枚は、`index.html`内に**Base64形式で直接埋め込み**ています。
+`assets/images/`フォルダにも同じ画像を`.jpg`ファイルとして置いていますが、これは
+差し替え作業用の元データであり、現在の`index.html`はこのフォルダを参照していません。
+
+埋め込みにした理由は2つあります。
+
+1. どのような環境で開いても（プレビュー・ローカル・GitHub Pages）確実に表示されるようにするため。
+2. 元データを調べたところ、拡張子は`.gif`／`.png`でしたが、実体はすべてJPEG形式の画像
+   でした（拡張子と中身が一致していませんでした）。これが原因で、環境によっては画像が
+   表示されない場合があったため、`assets/images/`側のファイルも中身に合わせて
+   `.jpg`拡張子に修正し、埋め込みデータも正しく`image/jpeg`として指定し直しています。
+
+画像を差し替える場合は、次のいずれかの方法で行ってください。
+
+- **簡単な方法**：`assets/images/`内の該当ファイルを新しい画像に置き換えたうえで、
+  `index.html`内の対応する`<img src="data:image/jpeg;base64,...">`を、新しい画像を
+  Base64化した文字列に差し替える（`python3 -c "import base64;print('data:image/jpeg;base64,'+base64.b64encode(open('新しい画像.jpg','rb').read()).decode())"`のようなコマンドで作成できます）。
+- **ファイル参照に戻す方法**：GitHub Pagesなど実際のフォルダ構成で公開する場合は、
+  `src="data:image/jpeg;base64,..."`の部分を`src="assets/images/ファイル名.jpg"`に
+  書き換えれば、通常のファイル参照に戻せます（実際のホスティング環境では
+  相対パスは問題なく機能します）。
 
 ## セクション構成（index.html内のid、ページに表示される順）
 
@@ -49,13 +73,17 @@ GitHub Pagesにアップロードする際は、上記ファイル・フォル�
 | SESSION 3 全画面ビュー | `#session3-view` | Googleフォーム × AI（回答体験→Gemini→Brisk・25分） |
 | SESSION 4 全画面ビュー | `#session4-view` | Canva AIで校務をもっと軽くする（PowerPoint→Canva AI・20分） |
 | SESSION 5 全画面ビュー | `#session5-view` | 明日から使えるAI活用ロードマップ（LEVEL1〜5・20分） |
+| AIツールの使い分け | `#tools` | Gemini／Gemini Notebook／Googleフォーム／Canva／Brisk／ChatGPT／Claude／Copilotの8カード |
 | 使い方ガイド／復習コーナー | `#guides` | Gemini・Gemini Notebook・Googleフォーム・Brisk・Canva AIの5カード（動画プレースホルダー付き） |
 | 小学校向け活用例 | `#subjects` | 国語〜管理職・教務まで14の教科・分掌カード |
 | AI活用ロードマップ | `#roadmap` | SESSION 5と同内容のLEVEL1〜5（研修後に単独で見返す用） |
 | 研修後に復習する | `#after` | クイックリンク・よくある質問（FAQ）7問・参考リンク |
 | プロンプトライブラリ | `#prompts` | 音声・校務／授業／学級・保護者の3カテゴリー |
 | 明日からやること | `#action` | 5つの選択肢から1つ以上選ぶミニアクションカード |
-| ツールの使い分け | `#tools` | Gemini／Gemini Notebook／Googleフォーム／Canva／Briskの5カード |
+
+`#tools`（AIツールの使い分け）は「今日の研修」の直後・「使い方ガイド」の直前に配置しています。
+研修本編（SESSION 0〜5）を一通り終えたあと、使ったツール同士の違いを整理してから、
+自分のペースで学ぶ使い方ガイドへ進む流れです。
 
 ## SESSION 0〜5の全画面ビューについて
 
@@ -86,8 +114,9 @@ SESSION 5の末尾と、独立したセクション`#action`の2箇所に、同�
       ファイル名・入手方法を記載する
 - [ ] 講師紹介（`#instructor`）・著作紹介（`#book`）：Base Designの内容（和田倫周氏）を
       そのまま引き継いでいます。紫原小学校の研修も同じ講師が担当する場合はこのままで
-      構いません。別の講師が担当する場合は、氏名・肩書き・経歴・バッジ・
-      `assets/images/instructor-illustration.gif`を差し替えてください
+      構いません。別の講師が担当する場合は、氏名・肩書き・経歴と、画像（現在は
+      `index.html`内にBase64で埋め込み。差し替え方法は上記「画像について」を参照）を
+      差し替えてください
 - [ ] フッター・SESSION内フッターの問い合わせ先（`michihirowadarin@gmail.com`）：
       担当が変わる場合は差し替える
 - [ ] Session3の「学級アンケート」「授業振り返りフォーム」演習：実際に使う教材・
@@ -110,10 +139,10 @@ index.html
 style.css
 script.js
 README.md
-assets/images/instructor-illustration.gif
-assets/images/google-trainer-badge.png
-assets/images/canvassador-badge.png
-assets/images/book-cover.png
+assets/images/instructor-illustration.jpg
+assets/images/google-trainer-badge.jpg
+assets/images/canvassador-badge.jpg
+assets/images/book-cover.jpg
 assets/videos/            （動画を追加する場合はこの中に配置し、.gitkeepは削除して構いません）
 ```
 
