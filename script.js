@@ -5,7 +5,7 @@
 //   追加した点と、末尾のinitActionCards()のみ新規追加です）
 //
 // 構成:
-//   1. initSplash()        … オープニング演出。濃いグリーンの幕が
+//   1. initSplash()        … オープニング演出。濃いオレンジの幕が
 //                              下から上へ流れて2秒程度で消える。
 //                              sessionStorageを使い、同一セッション中は
 //                              一度だけ表示する。
@@ -43,7 +43,7 @@ function initSplash() {
     requestAnimationFrame(() => splash.classList.add('show'));
   });
 
-  // 演出は2秒程度で終わり、操作を妨げない（濃いグリーンの幕が下から上へ流れて消える）
+  // 演出は2秒程度で終わり、操作を妨げない（濃いオレンジの幕が下から上へ流れて消える）
   setTimeout(closeSplash, 2000);
 }
 
