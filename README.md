@@ -31,7 +31,8 @@ Base Designから一切変更していません。変更したのは研修内容
     │   ├── instructor-illustration.jpg  講師イラスト（Base Designと同一人物を想定）
     │   ├── google-trainer-badge.jpg     資格バッジ画像
     │   ├── canvassador-badge.jpg        資格バッジ画像
-    │   └── book-cover.jpg               書影画像
+    │   ├── book-cover.jpg               書影画像
+    │   └── session3-form-qr.png         SESSION 3で使うGoogleフォームのQRコード
     └── videos/
         └── instructor-animation.mp4     講師紹介の顔写真枠に埋め込むミニアニメーション（6秒・音声なし扱いで自動再生）
 ```
@@ -62,6 +63,21 @@ GIFのように音なしで繰り返し再生される設定です。動画が�
 環境では、`poster`属性で指定した静止画（`instructor-illustration.jpg`のBase64）が
 代わりに表示されます。
 
+**SESSION 3のGoogleフォームQRコードについて**：`#session3-view`のSTEP 1にある
+QRコードは、以下のGoogleフォームの回答用URLから発行されたものです（画像内のQRコードを
+実際にデコードし、URLが一致することを確認済みです）。
+
+```
+https://docs.google.com/forms/d/e/1FAIpQLSfRcfGdyBHzD6aOA9BgYlS_Y4D1wT_8un4Lc77AGfdtbE4yNA/viewform?usp=publish-editor
+```
+
+このフォームを別のものに差し替える場合は、次の両方を更新してください。
+
+1. 新しいフォームのQRコード画像を`assets/images/session3-form-qr.png`に置き換え、
+   `index.html`内の対応する`<img src="data:image/png;base64,...">`を新しい画像の
+   Base64データに差し替える。
+2. STEP 1内の「Googleフォームを開く」ボタンの`href`を、新しいフォームのURLに差し替える。
+
 画像を差し替える場合は、次のいずれかの方法で行ってください。
 
 - **簡単な方法**：`assets/images/`内の該当ファイルを新しい画像に置き換えたうえで、
@@ -84,7 +100,7 @@ GIFのように音なしで繰り返し再生される設定です。動画が�
 | SESSION 0 全画面ビュー | `#session0-view` | オープニング（今日のゴール・5つのツール・今日使うリンク） |
 | SESSION 1 全画面ビュー | `#session1-view` | 「話すだけ」で校務が終わる時代へ（音声→Gemini） |
 | SESSION 2 全画面ビュー | `#session2-view` | Gemini Notebookを先生の共同担任にする（授業案・確認問題） |
-| SESSION 3 全画面ビュー | `#session3-view` | Googleフォーム × AI（回答体験→Gemini→Brisk） |
+| SESSION 3 全画面ビュー | `#session3-view` | Googleフォームは「アンケート」だけじゃない（STEP1〜5・25分構成、Brisk は自宅学習に分離） |
 | SESSION 4 全画面ビュー | `#session4-view` | Canva AIで校務をもっと軽くする（PowerPoint→Canva AI） |
 | SESSION 5 全画面ビュー | `#session5-view` | 明日から使えるAI活用ロードマップ（LEVEL1〜5） |
 | AIツールの使い分け | `#tools` | Gemini／Gemini Notebook／Googleフォーム／Canva／Brisk／ChatGPT／Claude／Copilotの8カード |
@@ -189,4 +205,6 @@ assets/videos/            （動画を追加する場合はこの中に配置し
 - [ ] 講師紹介のアニメーション動画が自動再生・ループするか（自動再生できない環境では
       静止画が代わりに表示されるか）
 - [ ] 「明日からやること」のチェックカードが選択状態を切り替えられるか
+- [ ] SESSION 3のQRコードをスマホで読み取り、正しいGoogleフォームが開くか
+- [ ] SESSION 3の「Googleフォームを開く」ボタンが正しいフォームへ遷移するか
 - [ ] GitHub Pages等で公開後、実機（スマートフォン・iPad・PC）で表示確認したか
