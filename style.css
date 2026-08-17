@@ -785,6 +785,28 @@ body.session-view-open { overflow: hidden; }
   letter-spacing: 0.01em;
 }
 .achievement-pill .material-symbols-outlined { font-size: 21px; color: #7a4a00; }
+a.cert-cta {
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s ease;
+  animation: cert-cta-pulse 2.6s ease-in-out infinite;
+}
+a.cert-cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 30px -8px rgba(245,166,35,0.7);
+}
+a.cert-cta:focus-visible {
+  outline: 3px solid var(--color-blue-deep);
+  outline-offset: 3px;
+}
+a.cert-cta .material-symbols-outlined:last-child { font-size: 18px; }
+@keyframes cert-cta-pulse {
+  0%, 100% { box-shadow: 0 10px 22px -8px rgba(245,166,35,0.55); }
+  50% { box-shadow: 0 12px 28px -6px rgba(245,166,35,0.85); }
+}
+@media (prefers-reduced-motion: reduce) {
+  a.cert-cta { animation: none; }
+}
 .instructor-bio { color: var(--color-text); font-size: 0.92rem; line-height: 1.85; margin-bottom: 1rem; }
 .quote-box {
   background: linear-gradient(90deg, #ffedd5 0%, #fed7aa 100%);
