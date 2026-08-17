@@ -1522,3 +1522,34 @@ a.cert-cta .material-symbols-outlined:last-child { font-size: 18px; }
   color: var(--color-text);
 }
 .more-box h5 { font-size: 0.92rem; font-weight: 800; margin-bottom: 0.4rem; }
+
+/* ------------------------------------------------------------
+   教材の種類ごとの使い分けなどを示す比較表（SESSION 3で使用）
+   ------------------------------------------------------------ */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.86rem;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+.compare-table th, .compare-table td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+.compare-table thead th {
+  background: var(--color-pill-bg);
+  color: var(--color-blue-deep);
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+.compare-table tbody tr:not(:last-child) { border-bottom: 1px solid var(--color-border-soft); }
+.compare-table tbody td:first-child { font-weight: 700; white-space: nowrap; }
+.compare-table td .material-symbols-outlined {
+  font-size: 15px;
+  vertical-align: -3px;
+  color: var(--color-blue);
+}

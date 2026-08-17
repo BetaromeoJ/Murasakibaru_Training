@@ -970,9 +970,19 @@
 
         <h4 class="session-sub-title">基本の流れ</h4>
         <div class="flow-diagram" style="margin-bottom:2rem;">
-          <div class="flow-step">教材</div>
+          <div class="flow-step">教材PDFをダウンロード</div>
+          <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+          <div class="flow-step">Googleドライブへアップロード</div>
+          <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+          <div class="flow-step">Drive上でPDFを開く</div>
           <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
           <div class="flow-step">Brisk</div>
+          <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+          <div class="flow-step">作成</div>
+          <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+          <div class="flow-step">クイズ</div>
+          <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+          <div class="flow-step">設定（学年レベル・質問タイプ・問題数）</div>
           <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
           <div class="flow-step">Googleフォーム</div>
         </div>
@@ -1076,11 +1086,61 @@
             <span class="material-symbols-outlined expand-icon" aria-hidden="true">expand_more</span>
           </button>
           <div class="accordion-panel" id="accS3-2">
-            <p>Briskの「クイズを作成」機能を選び、教材（PDF・Webページ・テキスト）を指定すると、Googleフォーム形式のクイズが自動生成されます。生成後は必ず内容を確認してから配布してください。</p>
+            <ol class="step-list">
+              <li class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body"><h4>教材PDFをダウンロードする</h4><p>フォームの元にしたい教材を、PDFファイルとして手元に保存します。</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body"><h4>Googleドライブへアップロードする</h4><p>個人のGoogleアカウントでGoogleドライブを開き、ダウンロードしたPDFをアップロードします。</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-body"><h4>ドライブ上でPDFを開く</h4><p>アップロードしたPDFをクリックし、Drive上のプレビュー画面で開きます。</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-body"><h4>Briskを起動する</h4><p>PDFを開いた状態で、ツールバーのBriskアイコンをクリックします。</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">5</div>
+                <div class="step-body"><h4>「作成」を選ぶ</h4><p>Briskのメニューから「作成」を選択します。</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">6</div>
+                <div class="step-body"><h4>「クイズ」を選ぶ</h4><p>作成する形式として「クイズ」を選びます。開いているPDFの内容をもとに、問題が自動生成されます。</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">7</div>
+                <div class="step-body"><h4>「設定」で学年レベルや質問タイプ、問題数を選ぶ</h4><p>「設定」画面で、対象学年のレベル、質問タイプ（選択式・記述式など）、問題数を指定します。</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">8</div>
+                <div class="step-body"><h4>Googleフォームとして書き出す</h4><p>生成されたクイズがGoogleフォーム形式で作成されます。配布する前に、必ず内容を確認してください。</p></div>
+              </li>
+            </ol>
           </div>
         </div>
 
         <p class="depth-label"><span class="material-symbols-outlined" aria-hidden="true">looks_3</span>もっと知る</p>
+        <div class="more-box" style="margin-bottom:1.25rem;">
+          <h5>Briskは教材の種類を選ばない</h5>
+          <p>ここまではGoogle Drive上のPDFを使う方法を練習しましたが、Briskは開いている画面の内容からクイズを作る仕組みなので、PDF以外の教材でも同じように使えます。特にYouTubeとの組み合わせは強力です。たとえば「この10分の解説動画を子どもたちに見せたい」と思ったら、そのYouTubeページを開いたままBriskを起動して、動画の内容をもとに理解度確認の問題を作るという使い方ができます。</p>
+          <p style="margin-top:0.75rem;">研修で紹介する・自分で試すときは、教材ごとに次のように整理すると分かりやすくなります。</p>
+          <table class="compare-table">
+            <thead>
+              <tr><th>元の教材</th><th>Briskでの使い方</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Webサイト</td><td>ページを開く → Brisk → クイズ</td></tr>
+              <tr><td>YouTube</td><td>動画ページを開く → Brisk → クイズ</td></tr>
+              <tr><td>Googleドキュメント</td><td>開く → Brisk → クイズ</td></tr>
+              <tr><td>Google Drive上のPDF</td><td>PDFを開く → Brisk → クイズ</td></tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="more-box" style="margin-bottom:2rem;">
           <h5>集計結果もAIで読み解く</h5>
           <p>Googleフォームの回答をスプレッドシートに出力し、その内容をGeminiに渡すと、自由記述の傾向をカテゴリー分けしてもらうこともできます。学級の実態把握や通知表所見の材料集めにも応用できます。</p>
