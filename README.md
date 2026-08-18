@@ -32,7 +32,8 @@ Base Designから一切変更していません。変更したのは研修内容
     │   ├── google-trainer-badge.jpg     資格バッジ画像
     │   ├── canvassador-badge.jpg        資格バッジ画像
     │   ├── book-cover.jpg               書影画像
-    │   └── session3-form-qr.png         SESSION 3で使うGoogleフォームのQRコード
+    │   ├── session3-form-qr.png         SESSION 3・STEP1で使うGoogleフォームのQRコード
+    │   └── session3-quiz-qr.png         SESSION 3冒頭のGoogleクイズ体験のQRコード
     └── videos/
         └── instructor-animation.mp4     講師紹介の顔写真枠に埋め込むミニアニメーション（6秒・音声なし扱いで自動再生）
 ```
@@ -78,6 +79,19 @@ https://docs.google.com/forms/d/e/1FAIpQLSfRcfGdyBHzD6aOA9BgYlS_Y4D1wT_8un4Lc77A
    Base64データに差し替える。
 2. STEP 1内の「Googleフォームを開く」ボタンの`href`を、新しいフォームのURLに差し替える。
 
+**SESSION 3冒頭のGoogleクイズについて**：`#session3-view`の最初（STEP 1より前）に、
+「まずは3問。Googleクイズに挑戦！」という導入セクションがあります。ここで使っている
+QRコード・ボタンは、STEP1の校務アンケートとは**別のGoogleフォーム（クイズ形式）**です。
+QRコードは、以下のURLから発行されたものであることをデコードして確認済みです。
+
+```
+https://docs.google.com/forms/d/e/1FAIpQLSeJQmkRN-kEFlaSEKbx2jMEzEro4rzyzsNtCmaKQYE2r4tE9g/viewform?usp=dialog
+```
+
+このクイズを差し替える場合も、上記と同様に「`assets/images/session3-quiz-qr.png`と
+対応するBase64データの差し替え」「『Googleクイズに挑戦する』ボタンの`href`の差し替え」の
+両方を行ってください。
+
 画像を差し替える場合は、次のいずれかの方法で行ってください。
 
 - **簡単な方法**：`assets/images/`内の該当ファイルを新しい画像に置き換えたうえで、
@@ -100,7 +114,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSfRcfGdyBHzD6aOA9BgYlS_Y4D1wT_8un4Lc77A
 | SESSION 0 全画面ビュー | `#session0-view` | オープニング（今日のゴール・5つのツール・今日使うリンク） |
 | SESSION 1 全画面ビュー | `#session1-view` | 「話すだけ」で校務が終わる時代へ（音声→Gemini） |
 | SESSION 2 全画面ビュー | `#session2-view` | Gemini Notebookを先生の共同担任にする（授業案・確認問題） |
-| SESSION 3 全画面ビュー | `#session3-view` | Googleフォームは「アンケート」だけじゃない（STEP1〜5・25分構成、Brisk は自宅学習に分離） |
+| SESSION 3 全画面ビュー | `#session3-view` | Googleフォームは「アンケート」だけじゃない（冒頭にGoogleクイズ体験→STEP1〜5、Brisk は自宅学習に分離） |
 | SESSION 4 全画面ビュー | `#session4-view` | Canva AIで校務をもっと軽くする（PowerPoint→Canva AI） |
 | SESSION 5 全画面ビュー | `#session5-view` | 明日から使えるAI活用ロードマップ（LEVEL1〜5） |
 | AIツールの使い分け | `#tools` | Gemini／Gemini Notebook／Googleフォーム／Canva／Brisk／ChatGPT／Claude／Copilotの8カード |
@@ -205,6 +219,8 @@ assets/videos/            （動画を追加する場合はこの中に配置し
 - [ ] 講師紹介のアニメーション動画が自動再生・ループするか（自動再生できない環境では
       静止画が代わりに表示されるか）
 - [ ] 「明日からやること」のチェックカードが選択状態を切り替えられるか
-- [ ] SESSION 3のQRコードをスマホで読み取り、正しいGoogleフォームが開くか
-- [ ] SESSION 3の「Googleフォームを開く」ボタンが正しいフォームへ遷移するか
+- [ ] SESSION 3冒頭のGoogleクイズQRコードをスマホで読み取り、正しいクイズが開くか
+- [ ] SESSION 3冒頭の「Googleクイズに挑戦する」ボタンが正しいクイズへ遷移するか
+- [ ] SESSION 3・STEP1のQRコードをスマホで読み取り、正しいGoogleフォーム（校務アンケート）が開くか
+- [ ] SESSION 3・STEP1の「Googleフォームを開く」ボタンが正しいフォームへ遷移するか
 - [ ] GitHub Pages等で公開後、実機（スマートフォン・iPad・PC）で表示確認したか
