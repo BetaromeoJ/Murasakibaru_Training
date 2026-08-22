@@ -140,7 +140,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSeJQmkRN-kEFlaSEKbx2jMEzEro4rzyzsNtCmaK
 | 今日の研修 | `#today` | 研修テーマ＋SESSION 0〜5のカード（開くボタンで全画面表示） |
 | SESSION 0 全画面ビュー | `#session0-view` | オープニング（今日のゴール・5つのツール・今日使うリンク） |
 | SESSION 1 全画面ビュー | `#session1-view` | 「話すだけ」で校務が終わる時代へ（音声→Gemini） |
-| SESSION 2 全画面ビュー | `#session2-view` | Gemini Notebookを先生の共同担任にする（PHASE 1：グランドデザインPDF1つで基本性能を体験／PHASE 2：自分の授業記録を蓄積・再利用） |
+| SESSION 2 全画面ビュー | `#session2-view` | Gemini Notebookを先生の共同担任にする（PHASE 1：グランドデザインPDF1つで基本性能を体験／PHASE 2：自分の授業記録を蓄積・再利用／もっと知る：学年団でNotebookを育てる発展編） |
 | SESSION 3 全画面ビュー | `#session3-view` | Googleフォームは「アンケート」だけじゃない（冒頭にGoogleクイズ体験→STEP1〜5、Brisk は自宅学習に分離） |
 | SESSION 4 全画面ビュー | `#session4-view` | Canva AIで校務をもっと軽くする（PowerPoint→Canva AI） |
 | SESSION 5 全画面ビュー | `#session5-view` | 明日から使えるAI活用ロードマップ（LEVEL1〜5） |
