@@ -474,6 +474,107 @@
           <p class="statement">AIは文章を書くものではありません。<br><span class="accent">情報を目的に応じて変換するパートナー</span>です。</p>
         </div>
 
+        <!-- 補足：iPadにGeminiアプリがない場合のTeams経由代替ルート（基本ルートを置き換えるものではない） -->
+        <div class="accordion" style="margin-bottom:2rem;">
+          <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="accS1-alt">
+            <span class="trigger-label"><span class="material-symbols-outlined" aria-hidden="true">alt_route</span>Geminiへ直接共有できないときは？</span>
+            <span class="material-symbols-outlined expand-icon" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="accordion-panel" id="accS1-alt">
+            <h4 style="font-size:0.95rem;font-weight:800;margin-bottom:0.5rem;">iPadにGeminiがなくても大丈夫</h4>
+            <p style="font-size:0.88rem;line-height:1.8;margin-bottom:1.25rem;">iPadにGeminiアプリが入っていない場合や、共有メニューから直接Geminiへ音声ファイルを渡せない場合でも、Teamsを「iPadと校務用PCの間のファイル受け渡し場所」として使うことで、録音データをGeminiで活用できます。</p>
+
+            <div class="grid grid-3" style="margin-bottom:1.25rem;gap:0.75rem;">
+              <div class="card" style="text-align:center;padding:1rem;">
+                <span class="material-symbols-outlined" style="font-size:26px;color:var(--color-blue);" aria-hidden="true">tablet_mac</span>
+                <p style="font-weight:800;font-size:0.85rem;margin-top:0.4rem;">iPad</p>
+                <p style="font-size:0.78rem;color:var(--color-text-sub);">録音する</p>
+              </div>
+              <div class="card" style="text-align:center;padding:1rem;">
+                <span class="material-symbols-outlined" style="font-size:26px;color:var(--color-blue);" aria-hidden="true">forum</span>
+                <p style="font-weight:800;font-size:0.85rem;margin-top:0.4rem;">Teams</p>
+                <p style="font-size:0.78rem;color:var(--color-text-sub);">音声データを受け渡す</p>
+              </div>
+              <div class="card" style="text-align:center;padding:1rem;">
+                <span class="material-symbols-outlined" style="font-size:26px;color:var(--color-blue);" aria-hidden="true">computer</span>
+                <p style="font-weight:800;font-size:0.85rem;margin-top:0.4rem;">校務用PC</p>
+                <p style="font-size:0.78rem;color:var(--color-text-sub);">Geminiで処理する</p>
+              </div>
+            </div>
+
+            <div class="grid grid-2" style="margin-bottom:1.25rem;">
+              <div class="card">
+                <p style="font-weight:800;font-size:0.85rem;margin-bottom:0.6rem;">通常ルート</p>
+                <div class="flow-diagram">
+                  <div class="flow-step" style="font-size:0.82rem;padding:0.6rem;">録音</div>
+                  <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+                  <div class="flow-step" style="font-size:0.82rem;padding:0.6rem;">Gemini</div>
+                  <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+                  <div class="flow-step" style="font-size:0.82rem;padding:0.6rem;">文字起こし・整理</div>
+                </div>
+              </div>
+              <div class="card">
+                <p style="font-weight:800;font-size:0.85rem;margin-bottom:0.6rem;">Geminiへ直接共有できない場合</p>
+                <div class="flow-diagram">
+                  <div class="flow-step" style="font-size:0.82rem;padding:0.6rem;">録音</div>
+                  <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+                  <div class="flow-step" style="font-size:0.82rem;padding:0.6rem;">Teams</div>
+                  <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+                  <div class="flow-step" style="font-size:0.82rem;padding:0.6rem;">校務用PC</div>
+                  <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+                  <div class="flow-step" style="font-size:0.82rem;padding:0.6rem;">Gemini</div>
+                  <div class="flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+                  <div class="flow-step" style="font-size:0.82rem;padding:0.6rem;">文字起こし・整理</div>
+                </div>
+              </div>
+            </div>
+
+            <p style="font-weight:800;font-size:0.9rem;margin-bottom:0.75rem;">具体的な手順</p>
+            <ol class="step-list" style="margin-bottom:1.25rem;">
+              <li class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body"><h4>iPadの「ボイスメモ」で録音する</h4></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body"><h4>録音したデータの「共有」をタップ</h4></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-body"><h4>共有先からTeamsを選択</h4></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-body"><h4>Teamsの自分宛てチャットへ送信</h4></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">5</div>
+                <div class="step-body"><h4>校務用Windows PCでTeamsを開く</h4></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">6</div>
+                <div class="step-body"><h4>自分宛てチャットから音声ファイルを取得</h4></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">7</div>
+                <div class="step-body"><h4>PCでGeminiを開き、音声ファイルを添付</h4></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num">8</div>
+                <div class="step-body"><h4>目的に応じたプロンプトで処理する</h4><p>会議録にする・面談記録にする・保護者向け報告にする・ToDoを抽出する・授業記録を整理するなど。</p></div>
+              </li>
+            </ol>
+
+            <div class="caution-card">
+              <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+              <ul>
+                <li>Teamsへのファイル送信、Geminiへの音声ファイル添付が利用できるかどうかは、学校・教育委員会のアカウント設定や端末環境によって異なります。実際の運用では所属組織のルールを確認してください。</li>
+                <li>児童生徒・保護者等の個人情報を含む音声データを扱う場合は、学校・教育委員会のルールや情報セキュリティ方針を優先してください。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <p class="depth-label"><span class="material-symbols-outlined" aria-hidden="true">looks_two</span>やってみる</p>
         <h4 class="session-sub-title" style="margin-top:0;">デモ：同じ録音データから、これだけの成果物へ</h4>
         <div class="card" style="margin-bottom:2rem;">
