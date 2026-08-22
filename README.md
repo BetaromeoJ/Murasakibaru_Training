@@ -16,6 +16,18 @@ Base Designから一切変更していません。変更したのは研修内容
 を録音ソースとして想定していましたが、紫原小学校版ではiPad標準搭載の「ボイスメモ」アプリに
 統一しています（主にSESSION 0・SESSION 1・使い方ガイドに反映）。
 
+**研修全体のストーリー**：SESSION 0〜5は、単独のツール紹介の集合ではなく、
+「話す（SESSION 1）→ 理解する・蓄積する（SESSION 2）→ 集める（SESSION 3）→
+伝える（SESSION 4）→ 自分の仕事に戻す（SESSION 5）」という1本の流れとして
+つながるように、各SESSIONの冒頭・末尾に短い接続文（tip-card）を追加しています。
+この全体像は`#today`（今日の研修）とSESSION 0内の「今日の流れ」フロー図にも
+視覚化しています。SESSION 2には、Gemini Notebookの基本性能を1つのPDF
+（紫原小学校のグランドデザイン）だけで体験する「PHASE 1」を新設し、
+既存の「自分の授業を蓄積して次に生かす」内容を「PHASE 2」として整理しました。
+PHASE 1では、PDFの実際の内容には触れず、「1つのPDFをソースに追加した
+Notebookで、インフォグラフィック・音声解説・スライド・動画解説の4通りに
+変換できる」という使い方だけを説明しています。
+
 ## ファイル構成
 
 ```
@@ -34,8 +46,10 @@ Base Designから一切変更していません。変更したのは研修内容
     │   ├── book-cover.jpg               書影画像
     │   ├── session3-form-qr.png         SESSION 3・STEP1で使うGoogleフォームのQRコード
     │   └── session3-quiz-qr.png         SESSION 3冒頭のGoogleクイズ体験のQRコード
-    └── videos/
-        └── instructor-animation.mp4     講師紹介の顔写真枠に埋め込むミニアニメーション（6秒・音声なし扱いで自動再生）
+    ├── videos/
+    │   └── instructor-animation.mp4     講師紹介の顔写真枠に埋め込むミニアニメーション（6秒・音声なし扱いで自動再生）
+    └── files/
+        └── session4-demo-slide.pptx     SESSION 4・STEP1のダウンロード用デモスライド
 ```
 
 GitHub Pagesにアップロードする際は、上記ファイル・フォルダをすべてそのままリポジトリ
@@ -92,6 +106,19 @@ https://docs.google.com/forms/d/e/1FAIpQLSeJQmkRN-kEFlaSEKbx2jMEzEro4rzyzsNtCmaK
 対応するBase64データの差し替え」「『Googleクイズに挑戦する』ボタンの`href`の差し替え」の
 両方を行ってください。
 
+**SESSION 4のデモスライドについて**：`#session4-view`のSTEP 1に、ダウンロード用の
+デモスライド（PowerPoint形式）を設置しています。元データは6.5MBありましたが、内部に
+埋め込まれていた日本語フォント（Noto Sans JP、合計約4.9MB）を削除し、画像1点を
+`pngquant`で圧縮した結果、**約352KB**まで軽量化しています（テキスト・画像・スライド構成は
+一切変更していません。フォントの埋め込みを解除しただけなので、Noto Sans JPがインストール
+されていない環境では、PowerPoint側の代替フォントで表示されます）。実ファイルは
+`assets/files/session4-demo-slide.pptx`に置いていますが、`index.html`内のダウンロード
+ボタンはBase64で直接埋め込んだデータを参照しています。差し替える場合は、
+`assets/files/`内のファイルを新しいものに置き換えたうえで、対応する
+`href="data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64,..."`を
+新しいファイルのBase64データに差し替えてください
+（`python3 -c "import base64;print(base64.b64encode(open('新しいファイル.pptx','rb').read()).decode())"`で生成できます）。
+
 画像を差し替える場合は、次のいずれかの方法で行ってください。
 
 - **簡単な方法**：`assets/images/`内の該当ファイルを新しい画像に置き換えたうえで、
@@ -113,7 +140,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSeJQmkRN-kEFlaSEKbx2jMEzEro4rzyzsNtCmaK
 | 今日の研修 | `#today` | 研修テーマ＋SESSION 0〜5のカード（開くボタンで全画面表示） |
 | SESSION 0 全画面ビュー | `#session0-view` | オープニング（今日のゴール・5つのツール・今日使うリンク） |
 | SESSION 1 全画面ビュー | `#session1-view` | 「話すだけ」で校務が終わる時代へ（音声→Gemini） |
-| SESSION 2 全画面ビュー | `#session2-view` | Gemini Notebookを先生の共同担任にする（授業案・確認問題） |
+| SESSION 2 全画面ビュー | `#session2-view` | Gemini Notebookを先生の共同担任にする（PHASE 1：グランドデザインPDF1つで基本性能を体験／PHASE 2：自分の授業記録を蓄積・再利用） |
 | SESSION 3 全画面ビュー | `#session3-view` | Googleフォームは「アンケート」だけじゃない（冒頭にGoogleクイズ体験→STEP1〜5、Brisk は自宅学習に分離） |
 | SESSION 4 全画面ビュー | `#session4-view` | Canva AIで校務をもっと軽くする（PowerPoint→Canva AI） |
 | SESSION 5 全画面ビュー | `#session5-view` | 明日から使えるAI活用ロードマップ（LEVEL1〜5） |
@@ -154,8 +181,7 @@ SESSION 5の末尾と、独立したセクション`#action`の2箇所に、同�
 - [ ] `#guides`（使い方ガイド／復習コーナー）：動画を追加したい場合は、各カードに
       `<div class="video-frame"><iframe ...></iframe></div>`（`style.css`に定義済みの
       `.video-frame`）を追加してください。現在は動画なしのテキスト＋リンクのみの構成です
-- [ ] SESSION 1の演習手順にあるtip-card（デモ音声についての案内）：演習用デモ音声の
-      ファイル名・入手方法を記載する
+- [ ] SESSION 1のロールプレイ演習：グループ分け・進行方法など、当日の運営上の準備があれば確認する
 - [ ] 講師紹介（`#instructor`）・著作紹介（`#book`）：Base Designの内容（和田倫周氏）を
       そのまま引き継いでいます。紫原小学校の研修も同じ講師が担当する場合はこのままで
       構いません。別の講師が担当する場合は、氏名・肩書き・経歴と、画像・動画（現在は
@@ -167,6 +193,10 @@ SESSION 5の末尾と、独立したセクション`#action`の2箇所に、同�
       対象学年に応じて、プロンプト内の【　】部分を調整する
 - [ ] `#subjects`（小学校向け活用例）の各教科の一文：紫原小学校の実態に応じて、
       具体的な活用例に書き足していく
+- [ ] **SESSION 2・PHASE 1**：「令和7年度 紫原小学校グランドデザイン」PDFを1つだけ
+      ソースに追加したGemini Notebookを、研修当日までに準備する。あわせて、
+      インフォグラフィック・音声解説・スライド・動画解説の4種類を、そのNotebookから
+      実際に生成して確認しておく（本サイトにはPDFの内容自体は記載していません）
 - [ ] SESSION 2の「夏休み明け最初の授業」デモ：実際に使う教材があれば差し替える
 - [ ] 各SESSIONの「よくあるトラブル」：実際の研修で出たトラブルがあれば追記する
 
@@ -223,4 +253,5 @@ assets/videos/            （動画を追加する場合はこの中に配置し
 - [ ] SESSION 3冒頭の「Googleクイズに挑戦する」ボタンが正しいクイズへ遷移するか
 - [ ] SESSION 3・STEP1のQRコードをスマホで読み取り、正しいGoogleフォーム（校務アンケート）が開くか
 - [ ] SESSION 3・STEP1の「Googleフォームを開く」ボタンが正しいフォームへ遷移するか
+- [ ] SESSION 4・STEP1の「デモスライドをダウンロード」ボタンでファイルが正しくダウンロードされ、PowerPointで開けるか
 - [ ] GitHub Pages等で公開後、実機（スマートフォン・iPad・PC）で表示確認したか
